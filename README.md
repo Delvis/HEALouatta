@@ -122,7 +122,7 @@ $$Support(A \rightarrow B) = P(A \cap B)$$
 
 $$Confidence(A \rightarrow B) = \frac{P(A \cap B)}{P(A)}$$
 
-- **Lift:** The ratio of the observed support to the support expected if A and B were independent. A Lift > 1 indicates that the items occur together more often than by chance, suggesting a non-random biological "bundle."
+- **Lift:** The ratio of the observed support to the support expected if A and B were independent. A Lift > 1 indicates that the items occur together more often than by chance, suggesting a non-random biological "bundle".
 
 $$Lift(A \rightarrow B) = \frac{P(A \cap B)}{P(A) \times P(B)}$$
 
@@ -155,17 +155,17 @@ Built on R version 4.5.2 (2025-10-31).
 
 | Category | Packages |
 |---------|---------|
-| Data Manipulation | [data.table](https://cran.r-project.org/package=data.table), [readxl](https://cran.r-project.org/package=readxl) |
+| Data Manipulation | [data.table](https://cran.r-project.org/package=data.table), [readxl](https://cran.r-project.org/package=readxl), [magrittr](https://cran.r-project.org/package=magrittr) |
 | Statistics | [data.table](https://cran.r-project.org/package=data.table), [arules](https://cran.r-project.org/package=arules) |
-| Visualization | [ggplot2](https://cran.r-project.org/package=ggplot2), [viridis](https://cran.r-project.org/package=viridis), [ggtext](https://cran.r-project.org/package=ggtext), [igraph](https://cran.r-project.org/package=igraph), [ggraph](https://cran.r-project.org/package=ggraph), [visNetwork](https://cran.r-project.org/package=visNetwork) |
+| Visualization | [ggplot2](https://cran.r-project.org/package=ggplot2), [viridis](https://cran.r-project.org/package=viridis), [ggtext](https://cran.r-project.org/package=ggtext), [igraph](https://cran.r-project.org/package=igraph), [ggraph](https://cran.r-project.org/package=ggraph) |
 | File I/O | [openxlsx](https://cran.r-project.org/package=openxlsx) |
-| App Interface | [shiny](https://cran.r-project.org/package=shiny), [shinythemes](https://cran.r-project.org/package=shinythemes) |
+| App Interface | [shiny](https://cran.r-project.org/package=shiny), [shinythemes](https://cran.r-project.org/package=shinythemes), [DT](https://cran.r-project.org/package=DT), [visNetwork](https://cran.r-project.org/package=visNetwork), [arulesViz](https://cran.r-project.org/package=arulesViz) |
 
 You can install all required packages by running:
 
 ```r
 install.packages(c(
-  "data.table", "readxl", "openxlsx", "DT", "magrittr"
+  "data.table", "readxl", "openxlsx", "DT", "magrittr",
   "ggplot2", "ggtext", "ggraph", "igraph", "viridis",
   "arules", "arulesViz", "shiny", "shinythemes", "visNetwork"
 ))
