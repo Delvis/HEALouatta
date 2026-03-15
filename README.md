@@ -12,13 +12,15 @@ This suite implements the "Dual-Method" approach popularized by **Freymann et al
 The core of the project is split into two complementary analytical paths:
 
 ### 1. The Sequential Pipeline (MDCA)
+
 Executed via `run_analysis.R`, this pipeline treats foraging as a directional "chain" of events.
 * **Methodology**: Multidimensional Collocation Analysis (MDCA).
 * **Logic**: A transition is identified when an actor moves from Item A to Item B within a 60-minute window on the same day.
-* **Stats**: Uses an Exact Binomial Test to calculate Collocation Strength ($Strength = -\log_{10}(p)$).
+* **Stats**: Uses an Exact Binomial Test to calculate *Collocation Strength*.
 * **Use Case**: Identifying specific "dietary recipes" where one food item acts as a lead-in to another.
 
 ### 2. The Discovery Engine (APRIORI App)
+
 Launched via the `/app/` directory, this tool treats foraging as a "market basket".
 * **Methodology**: Association Rule Mining (APRIORI).
 * **Logic**: Ignores the order of consumption to look at the "Daily Intake". If Item A and Item B are eaten by the same individual on the same day, they are co-occurring.
@@ -30,16 +32,26 @@ Launched via the `/app/` directory, this tool treats foraging as a "market baske
 # ✨ Key Features
   
 ### Automated Data Repair
+
 Fixes common Excel and manual-entry issues:
 - Excel serial dates, 6- or 8-digit date strings, and fractional time formats.
 - Remove data entries without full species of item eaten.
-- Fix time/date general issues.
 - Manual entry "Typo Gate" (e.g., `9000 → 0900`).
 
 ### Bout Identification
-Groups scans into distinct feeding events based on actor identity, food item consumed, and time gaps greater than 60 minutes.
+
+To transform discrete foraging scans into continuous feeding events, the pipeline implements a three-tier grouping logic:
+
+- Actor Identity: Scans are grouped by individual to ensure that transitions reflect the dietary choices of a single organism.
+- Item Continuity: A new bout is triggered if the food item or plant part changes (e.g., moving from Ficus fruit to Ficus leaves).
+- The 60-Minute Rule: To maintain independence between events, a time gap of >60 minutes between scans of the same item by the same actor will terminate the current bout and start a new one.
+
+**Why this matters:**
+
+This prevents "over-counting" transitions. For example, if a monkey eats the same fruit for three consecutive scans, the pipeline treats this as one single bout rather than two transitions, ensuring your Collocation Strength is not artificially inflated.
 
 ### Visualization
+
 Automatically generates high-resolution bar charts and directional network graphs for the MDCA pipeline.
 
 ### 1. Bar charts for species or populations
@@ -86,6 +98,7 @@ Only the master script resides in the root directory. All logic is encapsulated 
 The pipeline applies a statistical framework to determine whether certain food items are eaten sequentially more often than expected by chance. Transition strength is calculated using the **Exact Binomial Test**:
 
 $$Strength\ Score = -\log_{10}(p\text{-value})$$
+
 where:
 
 - the $p$-value is the probability of observing $k$ or more transitions  
@@ -95,7 +108,22 @@ Higher values indicate stronger-than-chance dietary sequencing.
 
 
 ### Association Rules (Non-Sequential)
+
 The Discovery Engine uses the **APRIORI algorithm** to identify "Daily Baskets". This identifies items eaten on the same day by the same actor, regardless of order, providing insights into synergistic medicinal effects.
+
+The engine evaluates these associations using three primary metrics:
+
+- **Support:** The proportion of total foraging days (transactions) that contain both Item A and Item B. It indicates how frequently the combination occurs in the population.
+
+$$Support(A \rightarrow B) = P(A \cap B)$$
+
+- **Confidence:** The probability that Item B is consumed given that Item A was consumed on the same day. It measures the reliability of the association.
+
+$$Confidence(A \rightarrow B) = \frac{P(A \cap B)}{P(A)}$$
+
+- **Lift:** The ratio of the observed support to the support expected if A and B were independent. A Lift > 1 indicates that the items occur together more often than by chance, suggesting a non-random biological "bundle."
+
+$$Lift(A \rightarrow B) = \frac{P(A \cap B)}{P(A) \times P(B)}$$
 
 ---
   
