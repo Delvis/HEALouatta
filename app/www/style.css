@@ -1,0 +1,66 @@
+/* www/style.css */
+
+/* 1. The Container: Remove horizontal padding on mobile for maximum fill */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: clamp(10px, 4vw, 50px);
+  padding: 15px 10px; /* Small 10px side margins for a clean look */
+  width: 100%;
+}
+
+/* 2. The Logo: Beefed up minimums and maximums */
+.app-logo {
+  /* Min: 120px | Ideal: 20% of width | Max: 400px */
+  width: clamp(250px, 30vw, 900px); 
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+/* 3. The Subtitle: Larger presence and reactive scaling */
+/* 3. The Subtitle: Elegant and reactive scaling */
+.app-subtitle {
+  /* Min: 1.2rem | Ideal: 2.2vw | Max: 2.5rem */
+  font-size: clamp(1.2rem, 2.2vw, 2.5rem);
+  
+  /* Lighter weight (400 or 300) is much more elegant than 600 */
+  font-weight: 300; 
+  
+  /* Slate-gray is softer on the eyes than pure black or heavy blue */
+  color: #34495e; 
+  
+  flex: 3;
+  min-width: 320px; 
+  
+  /* Increase line-height slightly so the text doesn't feel 'squashed' */
+  line-height: 1.4; 
+  
+  /* Positive letter-spacing adds a modern, airy feel */
+  letter-spacing: 0.01em; 
+  
+}
+
+/* 4. The "Fill" Mobile Logic */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 5% !important; /* Uses 5% margins to fill the screen */
+    gap: 15px;
+  }
+  
+  .app-logo {
+    width: 90%;         /* Logo takes up 60% of phone width */
+    min-width: 120px;   /* Ensures it stays chunky and visible */
+  }
+
+.app-subtitle {
+    min-width: 100%;
+    font-size: 1.3rem;
+    font-weight: 400; /* Slightly heavier than desktop for readability on small glass */
+    font-style: normal; /* Optional: remove italics on mobile if it looks too busy */
+  }
+
+}

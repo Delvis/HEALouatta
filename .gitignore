@@ -1,0 +1,38 @@
+# --- Data Privacy ---
+# Ignore raw Excel data files to protect unpublished research
+alouatta_data.xlsx
+data/
+
+# --- Shiny App Data ---
+# We WANT to include the processed .rds so the app is self-contained
+!app/data/clean_data.rds
+
+# --- Project Structure ---
+# Ignore the legacy folder as it contains non-active/old code
+legacy/
+
+# --- R specific ---
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+.Rapp.history
+
+# --- Analysis Checkpoints ---
+# Ignore temporary data checkpoints but keep the folder structure
+data_checkpoints/*
+!data_checkpoints/.gitkeep
+
+# --- System Files ---
+.DS_Store
+Thumbs.db
+
+# --- Outputs & Results ---
+# We generally ignore raw CSV/XLSX outputs to avoid repo bloat, 
+# but keep the PNGs so the README can display them.
+outputs/*.csv
+outputs/*.xlsx
+results/*.xlsx
+
+# Explicitly allow PNGs in results for README display
+!results/*.png
