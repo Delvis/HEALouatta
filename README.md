@@ -32,6 +32,33 @@ Launched via the `/app/` directory, this tool treats foraging as a "market baske
 
 ---
   
+# 📂 Project Structure
+  
+Only the master script resides in the root directory. All logic is encapsulated inside the `R/` and `app/` folders.
+
+```
+├── app/                 # Interactive Discovery Engine (APRIORI)
+│   ├── ui.R             # Responsive UI with Bugio branding
+│   ├── server.R         # APRIORI logic engine
+│   ├── helpers.R        # Basket transformation logic
+│   ├── setSliderColor.R # Dynamic CSS for beautiful sliders
+│   └── www/             # Logos, style.css, and katex-init.js
+├── data_checkpoints/
+├── outputs/             # Bout-processed tables
+├── R/                   # Modular MDCA pipeline logic
+│   ├── clean_data.R     
+│   ├── main_bouts.R     
+│   ├── run_collocation_MDCA.R 
+│   ├── run_collocation_plots.R 
+│   └── viz_data_plots.R     
+├── results/             # Saved BarCharts and NetworkPlots
+├── alouatta_data.xlsx   # (Private Research Data; not available for github)
+├── Alouatta_medicine.Rproj
+└── run_analysis.R       # Master controller for MDCA
+```
+
+---
+
 # ✨ Key Features
   
 ### Automated Data Repair
@@ -57,38 +84,11 @@ Automatically generates high-resolution bar charts and directional network graph
 
 ### 1. Bar charts for species or populations
 ![Bar Chart - A. guariba](results/BarChart_Alouatta_guariba.png)
-Fig. 1 - Bar chart of 32 top transitions at species level, here exemplified with *A. guariba*
+**Figure 1 -** Bar chart of 32 top transitions at species level, here exemplified with *A. guariba*
 
 ### 2. Network graph for species or populations
 ![Network - A. caraya](results/NetworkPlot_Alouatta_caraya.png)
-Fig. 2 - Network of 64 top transitions at species level, here exemplified with *A. caraya*
-
----
-  
-# 📂 Project Structure
-  
-Only the master script resides in the root directory. All logic is encapsulated inside the `R/` and `app/` folders.
-
-```
-├── app/                 # Interactive Discovery Engine (APRIORI)
-│   ├── ui.R             # Responsive UI with Bugio branding
-│   ├── server.R         # APRIORI logic engine
-│   ├── helpers.R        # Basket transformation logic
-│   ├── setSliderColor.R # Dynamic CSS for beautiful sliders
-│   └── www/             # Logos, style.css, and katex-init.js
-├── data_checkpoints/
-├── outputs/             # Bout-processed tables
-├── R/                   # Modular MDCA pipeline logic
-│   ├── clean_data.R     
-│   ├── main_bouts.R     
-│   ├── run_collocation_MDCA.R 
-│   ├── run_collocation_plots.R 
-│   └── viz_data_plots.R     
-├── results/             # Saved BarCharts and NetworkPlots
-├── alouatta_data.xlsx   # (Private Research Data; not available for github)
-├── Alouatta_medicine.Rproj
-└── run_analysis.R       # Master controller for MDCA
-```
+**Figure 2 -** Network of 64 top transitions at species level, here exemplified with *A. caraya*
 
 ---
   
@@ -132,11 +132,11 @@ $$Lift(A \rightarrow B) = \frac{P(A \cap B)}{P(A) \times P(B)}$$
 
 ## 1. Run the Sequential Pipeline (MDCA)
 
-Open \run_analysis.R\ in R and set the \RUN_SCOPE\ variable.
+Open `run_analysis.R` in R and set the `RUN_SCOPE` variable.
 
 You can filter by:
   
-- \"ALL"\ (this gives you full analysis of the entire dataset)
+- `"ALL"` (this gives you full analysis of the entire dataset)
 - species name (e.g., "Alouatta caraya", "Alouatta guariba")
 - population code (e.g., "NSG", "JCBM")
 
