@@ -1,9 +1,12 @@
 ![HEALouatta](app/www/HEALouatta_logo.png)
+
 # HEALouatta: A Dual-Framework Foraging Analysis Suite
 
 **HEALouatta** is a specialized R ecosystem designed for behavioral ecologists studying *Alouatta* (Howler monkey) foraging scans. It provides a modular pipeline to process raw field data and a high-end interactive engine to explore non-random dietary patterns.
 
 This suite implements the "Dual-Method" approach popularized by **Freymann et al. (2024)**, allowing researchers to investigate both sequential transitions and daily co-occurrences.
+
+The APRIORI web-app is available at <a href ="https://osteomics.com/HEALouatta" target = "_blank">osteomics: HEALouatta</a>.
 
 ---
 
@@ -175,8 +178,7 @@ install.packages(c(
 ## 📚 References
 
 ### Primary Methodology
-Freymann, E., d’Oliveira Coelho, J., Hobaiter, C., Huffman, M. A., Muhumuza, G., Zuberbühler, K., & Carvalho, S. (2024).  
-**Applying collocation and APRIORI analyses to chimpanzee diets: Methods for investigating nonrandom food combinations in primate self-medication.** *American Journal of Primatology*, 86(5), e23603.
+Freymann, E., d’Oliveira Coelho, J., Hobaiter, C., Huffman, M. A., Muhumuza, G., Zuberbühler, K., & Carvalho, S. (2024). Applying collocation and APRIORI analyses to chimpanzee diets: Methods for investigating nonrandom food combinations in primate self-medication. *American Journal of Primatology*, 86(5), e23603.
 
 ### Statistical Framework (MDCA & Collostructions)
 Gries, S. Th. (2013). 50-something years of work on collocations: What is or should be next… *International Journal of Corpus Linguistics*, 18(1), 137–165.
