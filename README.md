@@ -6,7 +6,7 @@
 
 This suite implements the "Dual-Method" approach popularized by **Freymann et al. (2024)**, allowing researchers to investigate both sequential transitions and daily co-occurrences.
 
-The APRIORI web-app is available at <a href ="https://osteomics.com/HEALouatta" target = "_blank">osteomics: HEALouatta</a>.
+The APRIORI web-app is available at [osteomics: HEALouatta](https://osteomics.com/HEALouatta).
 
 ---
 
@@ -45,13 +45,11 @@ Fixes common Excel and manual-entry issues:
 
 To transform discrete foraging scans into continuous feeding events, the pipeline implements a three-tier grouping logic:
 
-- Actor Identity: Scans are grouped by individual to ensure that transitions reflect the dietary choices of a single organism.
-- Item Continuity: A new bout is triggered if the food item or plant part changes (e.g., moving from Ficus fruit to Ficus leaves).
-- The 60-Minute Rule: To maintain independence between events, a time gap of >60 minutes between scans of the same item by the same actor will terminate the current bout and start a new one.
+- **Actor Identity:** Scans are grouped by individual to ensure that transitions reflect the dietary choices of a single organism.
+- **Item Continuity:** A new bout is triggered if the food item or plant part changes (e.g., moving from Ficus fruit to Ficus leaves).
+- **The 60-Minute Rule:** To maintain independence between events, a time gap of >60 minutes between scans of the same item by the same actor will terminate the current bout and start a new one.
 
-**Why this matters:**
-
-This prevents "over-counting" transitions. For example, if a monkey eats the same fruit for three consecutive scans, the pipeline treats this as one single bout rather than two transitions, ensuring your Collocation Strength is not artificially inflated.
+**Why this matters:** This prevents "over-counting" transitions. For example, if a monkey eats the same fruit for three consecutive scans, the pipeline treats this as one single bout rather than two transitions, ensuring your Collocation Strength is not artificially inflated.
 
 ### Visualization
 
@@ -178,14 +176,17 @@ install.packages(c(
 ## 📚 References
 
 ### Primary Methodology
+
 Freymann, E., d’Oliveira Coelho, J., Hobaiter, C., Huffman, M. A., Muhumuza, G., Zuberbühler, K., & Carvalho, S. (2024). Applying collocation and APRIORI analyses to chimpanzee diets: Methods for investigating nonrandom food combinations in primate self-medication. *American Journal of Primatology*, 86(5), e23603.
 
 ### Statistical Framework (MDCA & Collostructions)
+
 Gries, S. Th. (2013). 50-something years of work on collocations: What is or should be next… *International Journal of Corpus Linguistics*, 18(1), 137–165.
 
 Stefanowitsch, A., & Gries, S. Th. (2003). Collostructions: Investigating the interaction of words and constructions *International Journal of Corpus Linguistics*, 8(2), 209–243.
 
-### Association Rules & R Environment (APRIORI App)
+### Association Rules (APRIORI App)
+
 Agrawal, R., Srikant, R. (1994). Fast algorithms for mining association rules in large databases, *Proceedings of the 20th International Conference on Very Large Data Bases* (pp. 487–499). Morgan Kaufmann Publishers Inc.
 
 Al-Maolegi, M., & Arkok, B. (2014). An improved Apriori algorithm for association rules. *ArXiv Preprint* ArXiv:1403.3948.
