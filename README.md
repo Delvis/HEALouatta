@@ -1,4 +1,5 @@
-# 🐵 HEALouatta: A Dual-Framework Foraging Analysis Suite
+![HEALouatta](app/www/HEALouatta_logo.png)
+# HEALouatta: A Dual-Framework Foraging Analysis Suite
 
 **HEALouatta** is a specialized R ecosystem designed for behavioral ecologists studying *Alouatta* (Howler monkey) foraging scans. It provides a modular pipeline to process raw field data and a high-end interactive engine to explore non-random dietary patterns.
 
